@@ -12,7 +12,7 @@
                       (.write writer "\r\n")
                       (.flush writer)
                       (.readLine reader))]
-      (let [[status result] (json/parse-string resp)]
+      (let [[status result] (json/parse-string resp true)]
         (if (zero? status)
           result
           (throw (Exception. #^String result))))
